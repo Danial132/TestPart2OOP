@@ -1,0 +1,95 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Test2
+{
+    public struct Theaddressbook
+    {
+        public struct User
+        {
+            public string name;
+            public string surname;
+            public int age;
+            public string patronymic;
+
+            public void DisplayInfo()
+            {
+                Console.WriteLine($"Name: {name}   Surname: {surname}   Patronymic: {patronymic}   Age: {age}");
+            }
+        }
+        public struct Adress
+        {
+            public int anumber;
+            public string street;
+            public int hnumber;
+            public void DisplayInfo()
+            {
+                Console.WriteLine($"Street number: {street}  House number: {hnumber}   Apartament number: {anumber}");
+            }
+        }
+    }
+    class Program
+    {
+
+        static void Main(string[] args)
+        {           
+            
+            //USER
+            Theaddressbook.User[] Users = new Theaddressbook.User[3];
+            Users[0].name = "Tom";
+            Users[0].age = 23;
+            Users[0].surname = "Smith";
+            Users[0].patronymic = "Williams";
+            //USER1
+            Users[1].name = "Jerry";
+            Users[1].age = 12;
+            Users[1].surname = "Evans";
+            Users[1].patronymic = "Roberts";
+            //USER2
+            Users[2].name = "Will";
+            Users[2].age = 25;
+            Users[2].surname = "Smith";
+            Users[2].patronymic = "Williams";
+
+
+            //ADRESS
+            Theaddressbook.Adress[] Adresses = new Theaddressbook.Adress[3];
+            Adresses[0].anumber = 9;
+            Adresses[0].street = "The Magnificent Mile";
+            Adresses[0].hnumber = 3;
+            //ADRESS1
+            Adresses[1].anumber = 9;
+            Adresses[1].street = "The Magnificent Mile";
+            Adresses[1].hnumber = 3;
+            //ADRESS2
+
+            Adresses[2].anumber = 12;
+            Adresses[2].street = "Wall Street";
+            Adresses[2].hnumber = 16;
+
+
+            Users[0].DisplayInfo();
+            Adresses[0].DisplayInfo();
+            Users[1].DisplayInfo();
+            Adresses[1].DisplayInfo();
+            Users[2].DisplayInfo();
+            Adresses[2].DisplayInfo();
+
+
+            string s1 = "The Magnificent Mile";
+            int count = 0;
+            for (int i = 0; i < Adresses.Length; i++)
+            {
+                if (Adresses[i].street.Equals(s1))
+                {
+                    count++;
+                }
+            }
+            Console.WriteLine(count + " person live on the street The Magnificent Mile");
+            Console.ReadKey();
+        }
+    }
+}
